@@ -1,0 +1,71 @@
+project:
+  name: discussion-market-model
+  window_size_hours: 6
+  output_dir: results
+  data_dir: data
+  model_dir: models
+nlp:
+  topic_backend: bertopic
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  min_topic_size: 20
+  nr_topics: auto
+  sentiment_backend: finbert
+  finbert_model: ProsusAI/finbert
+  finbert_revision: refs/pr/29
+  batch_size: 64
+  ticker_extraction: hybrid_fast
+  ticker_batch_size: 4096
+  max_ticker_candidates: 8
+  gliner_model: urchade/gliner_small-v2.1
+  gliner_threshold: 0.35
+  gliner_policy: missing_only
+  gliner_max_messages: 2000
+  simulation_topic_mode: aggregate
+  simulation_topic_count: 6
+  indicator_keep_detailed_topics: true
+  sentiment_policy: reuse_or_compute
+  sentiment_cache_enabled: true
+  sentiment_max_length: 160
+  sentiment_device: auto
+payoff:
+  sentiment_mode: magnitude
+  hybrid_lambda: 0.7
+  w_sentiment: 0.5
+  w_influence: 0.5
+influence:
+  mode: dynamic_decayed_pagerank
+  decay_per_window: 0.95
+  pagerank_alpha: 0.85
+  pagerank_weight: 0.7
+  pagerank_max_iter: 100
+  pagerank_tol: 1.0e-06
+  min_edge_weight: 0.0001
+  edge_score_weight: 0.1
+netlogo:
+  executable: null
+  model_path: netlogo/evolutionary_discussion.nlogox
+  timeout: 180
+  random_seed: 42
+  pop_size: 1000
+  keep_files: false
+
+calibration:
+  objective_metric: nrmse
+  objective_nrmse_weight: 1.0
+  objective_l1_weight: 25.0
+
+modeling:
+  compare_future_windows: 1
+  max_continue_windows: 4
+  nrmse_threshold: 35.0
+  rmse_threshold: 0.15
+  l1_threshold: 0.35
+  reliability_threshold: 0.65
+  prolonged_min_windows: 3
+  coverage_threshold: 0.65
+  emerging_share_threshold: 0.3
+market:
+  enabled: true
+  provider: yfinance
+  market_index: SPY
+  ticker_universe_cache: data/market/ticker_universe.csv

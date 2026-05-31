@@ -1,0 +1,37 @@
+[theme]
+base = "light"
+primaryColor = "#4F46E5"
+font = "sans-serif"
+baseRadius = "medium"
+buttonRadius = "medium"
+showSidebarBorder = true
+chartCategoricalColors = ["#4F46E5", "#06B6D4", "#8B5CF6", "#10B981", "#F59E0B", "#F43F5E", "#14B8A6", "#F97316", "#2563EB", "#9333EA"]
+chartSequentialColors = ["#EEF2FF", "#E0E7FF", "#C7D2FE", "#A5B4FC", "#818CF8", "#6366F1", "#4F46E5", "#4338CA", "#3730A3", "#312E81"]
+
+[theme.light]
+primaryColor = "#4F46E5"
+backgroundColor = "#F7F8FB"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#111827"
+borderColor = "#D9DEE8"
+codeBackgroundColor = "#F1F4F9"
+linkColor = "#4F46E5"
+
+[theme.dark]
+primaryColor = "#818CF8"
+backgroundColor = "#080C14"
+secondaryBackgroundColor = "#0F1624"
+textColor = "#E8EDF7"
+borderColor = "#243044"
+codeBackgroundColor = "#151E2E"
+linkColor = "#A5B4FC"
+
+[theme.light.sidebar]
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F7F8FB"
+textColor = "#111827"
+
+[theme.dark.sidebar]
+backgroundColor = "#080C14"
+secondaryBackgroundColor = "#0F1624"
+textColor = "#E8EDF7"
